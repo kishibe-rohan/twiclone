@@ -17,6 +17,10 @@ const Input = () => {
     const filePickerRef = useRef(null);
     const [showEmojis, setShowEmojis] = useState(false);
 
+    const sendPost = () => {
+        
+    }
+
     const addImageToPost = (e) => {
         const reader = new FileReader();
         if(e.target.files[0])
