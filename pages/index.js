@@ -44,6 +44,8 @@ export async function getServerSideProps(context) {
     props: {
       trendingResults,
       followResults,
+      providers,
+      session,
     },
   }
 }
