@@ -70,7 +70,24 @@ function TweetPage({ trendingResults, followResults, providers }) {
           </div>
 
           <Tweet id={id} tweet={tweet} tweetPage />
+          {comments.length > 0 && (
+            <div className="pb-72">
+              {comments.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  id={comment.id}
+                  comment={comment.data()}
+                />
+              ))}
+            </div>
+          )}
         </div>
+        <Widgets
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
+
+        {isOpen && <Modal />}
       </main>
     </div>
   )
@@ -79,10 +96,10 @@ function TweetPage({ trendingResults, followResults, providers }) {
 export default TweetPage
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch('https://jsonkeeper.com/b/NKEV').then(
+  const trendingResults = await fetch('https://jsonkeeper.com/b/ETBL').then(
     (res) => res.json()
   )
-  const followResults = await fetch('https://jsonkeeper.com/b/WWMJ').then(
+  const followResults = await fetch('https://jsonkeeper.com/b/ONDZ').then(
     (res) => res.json()
   )
 
